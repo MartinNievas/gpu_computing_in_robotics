@@ -8,7 +8,7 @@
 cudaError_t cudaWarmUpGPU();
 cudaError_t cudaTransformPoints(int threads, pcl::PointXYZ *d_point_cloud, int number_of_points, float *d_matrix);
 cudaError_t cudaRemovePointsInsideSphere(int threads, pcl::PointXYZ *d_point_cloud, bool *d_markers,
-		int number_of_points, float sphere_radius);
+    int number_of_points, float sphere_radius);
 
 
 #endif
