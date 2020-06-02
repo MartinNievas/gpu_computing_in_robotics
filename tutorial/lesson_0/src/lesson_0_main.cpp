@@ -6,7 +6,7 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/console/parse.h>
 
-// #include "cudaWrapper.h"
+#include "cudaWrapper.h"
 
 const unsigned int window_width  = 512;
 const unsigned int window_height = 512;
@@ -17,7 +17,7 @@ float translate_z = -20.0;
 float translate_x, translate_y = 0.0;
 
 pcl::PointCloud<pcl::PointXYZ> point_cloud;
-// CCudaWrapper cudaWrapper;
+CCudaWrapper cudaWrapper;
 
 bool initGL(int *argc, char **argv);
 void display();
@@ -142,77 +142,77 @@ void display()
   glutSwapBuffers();
 }
 
-// void keyboard(unsigned char key, int [>x*/, int /*y<])
-// {
-//   switch (key)
-//   {
-//     case (27) :
-//       glutDestroyWindow(glutGetWindow());
-//       return;
-//     case 'a' :
-//       {
-//         clock_t begin_time;
-//         double computation_time;
-//         begin_time = clock();
-//
-//         cudaWrapper.rotateLeft(point_cloud);
-//
-//         computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
-//         std::cout << "cudaWrapper.rotateLeft computation_time: " << computation_time << std::endl;
-//         break;
-//       }
-//     case 'd' :
-//       {
-//         clock_t begin_time;
-//         double computation_time;
-//         begin_time = clock();
-//
-//         cudaWrapper.rotateRight(point_cloud);
-//
-//         computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
-//         std::cout << "cudaWrapper.rotateRight computation_time: " << computation_time << std::endl;
-//         break;
-//       }
-//     case 'w':
-//       {
-//         clock_t begin_time;
-//         double computation_time;
-//         begin_time = clock();
-//
-//         cudaWrapper.translateForward(point_cloud);
-//
-//         computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
-//         std::cout << "cudaWrapper.translateForward computation_time: " << computation_time << std::endl;
-//         break;
-//       }
-//     case 's':
-//       {
-//         clock_t begin_time;
-//         double computation_time;
-//         begin_time = clock();
-//
-//         cudaWrapper.translateBackward(point_cloud);
-//
-//         computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
-//         std::cout << "cudaWrapper.translateBackward computation_time: " << computation_time << std::endl;
-//         break;
-//       }
-//     case 'r':
-//       {
-//         clock_t begin_time;
-//         double computation_time;
-//         begin_time = clock();
-//
-//         cudaWrapper.removePointsInsideSphere(point_cloud);
-//
-//         computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
-//         std::cout << "cudaWrapper.removePointsInsideSphere computation_time: " << computation_time << std::endl;
-//         break;
-//       }
-//   }
-//   glutPostRedisplay();
-//   printHelp();
-// }
+void keyboard(unsigned char key, int x, int y)
+{
+  switch (key)
+  {
+    case (27) :
+      glutDestroyWindow(glutGetWindow());
+      return;
+    case 'a' :
+      {
+        clock_t begin_time;
+        double computation_time;
+        begin_time = clock();
+
+        cudaWrapper.rotateLeft(point_cloud);
+
+        computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
+        std::cout << "cudaWrapper.rotateLeft computation_time: " << computation_time << std::endl;
+        break;
+      }
+    case 'd' :
+      {
+        clock_t begin_time;
+        double computation_time;
+        begin_time = clock();
+
+        cudaWrapper.rotateRight(point_cloud);
+
+        computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
+        std::cout << "cudaWrapper.rotateRight computation_time: " << computation_time << std::endl;
+        break;
+      }
+    case 'w':
+      {
+        clock_t begin_time;
+        double computation_time;
+        begin_time = clock();
+
+        cudaWrapper.translateForward(point_cloud);
+
+        computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
+        std::cout << "cudaWrapper.translateForward computation_time: " << computation_time << std::endl;
+        break;
+      }
+    case 's':
+      {
+        clock_t begin_time;
+        double computation_time;
+        begin_time = clock();
+
+        cudaWrapper.translateBackward(point_cloud);
+
+        computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
+        std::cout << "cudaWrapper.translateBackward computation_time: " << computation_time << std::endl;
+        break;
+      }
+    case 'r':
+      {
+        clock_t begin_time;
+        double computation_time;
+        begin_time = clock();
+
+        cudaWrapper.removePointsInsideSphere(point_cloud);
+
+        computation_time=(double)( clock () - begin_time ) /  CLOCKS_PER_SEC;
+        std::cout << "cudaWrapper.removePointsInsideSphere computation_time: " << computation_time << std::endl;
+        break;
+      }
+  }
+  glutPostRedisplay();
+  printHelp();
+}
 
 void mouse(int button, int state, int x, int y)
 {

@@ -18,12 +18,12 @@ add_definitions(${PCL_DEFINITIONS})
 set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} ${CUDADEVICE_NVCC_FLAGS} -Xptxas -v")
 
 cuda_add_executable(lesson_0
-	src/lesson_0_main.cpp
-	src/cudaWrapper.cpp
-	src/lesson_0.cu
-)
+  src/lesson_0_main.cpp
+  src/cudaWrapper.cpp
+  src/lesson_0.cu
+  )
 target_link_libraries(lesson_0
-	${OPENGL_LIBRARIES}
-	${GLUT_LIBRARIES}
-	${PCL_LIBRARIES}
-)
+  ${OPENGL_LIBRARIES}
+  ${GLUT_LIBRARIES}
+  ${PCL_LIBRARIES}
+  )

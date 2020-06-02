@@ -2,7 +2,7 @@
 #define __LESSON_0_H__
 
 #include <cuda.h>
-#include <cuda_runtime.h>
+#include <cuda_runtime_api.h>
 #include <pcl/point_types.h>
 
 cudaError_t cudaWarmUpGPU();
