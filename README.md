@@ -3,6 +3,15 @@
 This tutorial concerns robotic data processing with CUDA.
 Content of the tutorial:
 
+## How to compile
+If you get this error:
+
+```bash
+/usr/local/cuda/include/crt/common_functions.h:64:24: error: token ""__CUDACC_VER__ is no longer supported. Use __CUDACC_VER_MAJOR__, __CUDACC_VER_MINOR__, and __CUDACC_VER_BUILD__ instead."" is not valid in preprocessor expressions #define __CUDACC_VER__ "__CUDACC_VER__ is no longer supported. Use __CUDACC_VER_MAJOR__, __CUDACC_VER_MINOR__,
+```
+
+Follow [this instructions](https://github.com/BVLC/caffe/issues/5994#issuecomment-337507479)
+
 ## Lessons
 
 ### Lesson 0: basic transformations
